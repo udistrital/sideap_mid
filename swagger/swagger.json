@@ -1,0 +1,134 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "beego Test API",
+        "description": "beego has a very cool tools to autogenerate documents for your API\n",
+        "version": "1.0.0",
+        "termsOfService": "http://beego.me/",
+        "contact": {
+            "email": "astaxie@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/documento_soporte/{id}": {
+            "get": {
+                "tags": [
+                    "documento_soporte"
+                ],
+                "description": "get Documento_soporte by id\n\u003cbr\u003e",
+                "operationId": "DocumentoSoporteController.GetOne",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Documento_soporte"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            }
+        },
+        "/hoja_de_vida/{id}": {
+            "get": {
+                "tags": [
+                    "hoja_de_vida"
+                ],
+                "description": "get Hoja_de_vida by id\n\u003cbr\u003e",
+                "operationId": "HojaDeVidaController.GetOne",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Hoja_de_vida"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            }
+        },
+        "/informacion_basica/{id}": {
+            "get": {
+                "tags": [
+                    "informacion_basica"
+                ],
+                "description": "get Informacion_basica by id\n\u003cbr\u003e",
+                "operationId": "InformacionBasicaController.GetOne",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Informacion_basica"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Documento_soporte": {
+            "title": "Documento_soporte",
+            "type": "object"
+        },
+        "models.Hoja_de_vida": {
+            "title": "Hoja_de_vida",
+            "type": "object"
+        },
+        "models.Informacion_basica": {
+            "title": "Informacion_basica",
+            "type": "object"
+        }
+    },
+    "tags": [
+        {
+            "name": "informacion_basica",
+            "description": "InformacionBasicaController operations for Informacion_basica\n"
+        },
+        {
+            "name": "hoja_de_vida",
+            "description": "HojaDeVidaController operations for Hoja_de_vida\n"
+        },
+        {
+            "name": "documento_soporte",
+            "description": "DocumentoSoporteController operations for Documento_soporte\n"
+        }
+    ]
+}
