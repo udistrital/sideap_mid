@@ -1,6 +1,11 @@
 package controllers
 
 import (
+	"errors"
+	"sideap_mid/helpers"
+	"sideap_mid/utils_oas/error_control"
+
+	"github.com/beego/beego/v2/core/logs"
 	beego "github.com/beego/beego/v2/server/web"
 )
 
@@ -11,16 +16,40 @@ type InformacionBasicaController struct {
 
 // URLMapping ...
 func (c *InformacionBasicaController) URLMapping() {
-	c.Mapping("GetOne", c.GetOne)
+	c.Mapping("GetAll", c.GetAll)
 }
 
-// GetOne ...
-// @Title GetOne
+// GetAll ...
+// @Title GeAll
 // @Description get Informacion_basica by id
-// @Param	id		path 	string	true		"The key for staticblock"
+// @Param	codigo	query	string	true	"Codigo de abreviacion del documento de identidad"
+// @Param	numero	query	string	true	"Numero de documento"
 // @Success 200 {object} models.Informacion_basica
-// @Failure 403 :id is empty
-// @router /:id [get]
-func (c *InformacionBasicaController) GetOne() {
+// @router / [get]
+func (c *InformacionBasicaController) GetAll() {
+
+	defer error_control.ErrorControlController(c.Controller, "InformacionBasicaController")
+
+	codigo := c.GetString("codigo")
+	numero := c.GetString("numero")
+
+	if codigo == "" || numero == "" {
+		err := errors.New("se debe especificar un tipo y número de documento")
+		logs.Error(err)
+		panic(map[string]interface{}{
+			"funcion": `GetAll - codigo == "" || numero == ""`,
+			"err":     err,
+			"status":  "400",
+		})
+	}
+
+	info, err := helpers.GetInformacionBasicaByDocumento(codigo, numero)
+	if err == nil {
+		c.Data["json"] = info
+	} else {
+		panic(err)
+	}
+
+	c.ServeJSON()
 
 }

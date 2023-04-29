@@ -54,18 +54,23 @@ paths:
             $ref: '#/definitions/models.Hoja_de_vida'
         "403":
           description: :id is empty
-  /informacion_basica/{id}:
+  /informacion_basica/:
     get:
       tags:
       - informacion_basica
       description: |-
         get Informacion_basica by id
         <br>
-      operationId: InformacionBasicaController.GetOne
+      operationId: InformacionBasicaController.GeAll
       parameters:
-      - in: path
-        name: id
-        description: The key for staticblock
+      - in: query
+        name: codigo
+        description: Codigo de abreviacion del documento de identidad
+        required: true
+        type: string
+      - in: query
+        name: numero
+        description: Numero de documento
         required: true
         type: string
       responses:
@@ -73,8 +78,6 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Informacion_basica'
-        "403":
-          description: :id is empty
 definitions:
   models.Documento_soporte:
     title: Documento_soporte
