@@ -18,8 +18,8 @@ func init() {
 
 	beego.GlobalControllerRouter["sideap_mid/controllers:HojaDeVidaController"] = append(beego.GlobalControllerRouter["sideap_mid/controllers:HojaDeVidaController"],
 		beego.ControllerComments{
-			Method:           "GetOne",
-			Router:           "/:id",
+			Method:           "GetAll",
+			Router:           "/",
 			AllowHTTPMethods: []string{"get"},
 			MethodParams:     param.Make(),
 			Filters:          nil,

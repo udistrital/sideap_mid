@@ -33,7 +33,7 @@ paths:
             $ref: '#/definitions/models.Documento_soporte'
         "403":
           description: :id is empty
-  /hoja_de_vida/{id}:
+  /hoja_de_vida/:
     get:
       tags:
       - hoja_de_vida
@@ -42,18 +42,24 @@ paths:
         <br>
       operationId: HojaDeVidaController.GetOne
       parameters:
-      - in: path
-        name: id
-        description: The key for staticblock
-        required: true
+      - in: query
+        name: codigo
+        description: Codigo de abreviacion del documento de identidad
         type: string
+      - in: query
+        name: numero
+        description: Numero de documento
+        type: string
+      - in: query
+        name: personaId
+        description: Numero de documento
+        type: integer
+        format: int64
       responses:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.Hoja_de_vida'
-        "403":
-          description: :id is empty
+            $ref: '#/definitions/models.HojaVida'
   /informacion_basica/:
     get:
       tags:
@@ -82,12 +88,107 @@ definitions:
   models.Documento_soporte:
     title: Documento_soporte
     type: object
-  models.Hoja_de_vida:
-    title: Hoja_de_vida
+  models.EducacionSuperior:
+    title: EducacionSuperior
     type: object
+    properties:
+      graduado:
+        type: boolean
+      idRegistro:
+        type: integer
+        format: int64
+      idTipoRegistro:
+        type: integer
+        format: int64
+      programa:
+        type: string
+      soporteEstudio:
+        type: string
+      ultimoSemestreAprobado:
+        type: integer
+        format: int64
+  models.Estudio:
+    title: Estudio
+    type: object
+    properties:
+      idRegistro:
+        type: integer
+        format: int64
+      idTipoRegistro:
+        type: integer
+        format: int64
+  models.ExperienciaLaboral:
+    title: ExperienciaLaboral
+    type: object
+    properties:
+      cargoOContrato:
+        type: string
+      entidad:
+        type: string
+      fechaIngreso:
+        type: string
+      fechaRetiro:
+        type: string
+      idRegistro:
+        type: integer
+        format: int64
+      idTipoRegistro:
+        type: integer
+        format: int64
+      soporte:
+        type: string
+  models.HojaVida:
+    title: HojaVida
+    type: object
+    properties:
+      Persona:
+        type: array
+        items:
+          $ref: '#/definitions/models.HojaVida_'
+  models.HojaVida_:
+    title: HojaVida_
+    type: object
+    properties:
+      educacionSuperior:
+        type: array
+        items:
+          $ref: '#/definitions/models.EducacionSuperior'
+      experienciaLaboral:
+        type: array
+        items:
+          $ref: '#/definitions/models.ExperienciaLaboral'
+      idPersonaSIDEAP:
+        type: integer
+        format: int64
+      otroEstudio:
+        type: array
+        items:
+          $ref: '#/definitions/models.OtroEstudio'
+      soporteDocumentoIdentidad:
+        type: string
+      soporteEducacionBasica:
+        type: string
   models.Informacion_basica:
     title: Informacion_basica
     type: object
+  models.OtroEstudio:
+    title: OtroEstudio
+    type: object
+    properties:
+      idRegistro:
+        type: integer
+        format: int64
+      idTipoRegistro:
+        type: integer
+        format: int64
+      institucionFormacion:
+        type: string
+      nombreEstudio:
+        type: string
+      programa:
+        type: string
+      soporte:
+        type: string
 tags:
 - name: informacion_basica
   description: |

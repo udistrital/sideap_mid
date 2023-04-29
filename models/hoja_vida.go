@@ -1,8 +1,10 @@
 package models
 
-import "time"
-
 type HojaVida struct {
+	Persona []HojaVida_
+}
+
+type HojaVida_ struct {
 	ID                        int                  `json:"idPersonaSIDEAP"`
 	SoporteDocumentoIdentidad string               `json:"soporteDocumentoIdentidad"`
 	SoporteEducacionBasica    string               `json:"soporteEducacionBasica"`
@@ -26,17 +28,17 @@ type EducacionSuperior struct {
 
 type ExperienciaLaboral struct {
 	Estudio
-	Entidad      string    `json:"entidad"`
-	FechaIngreso time.Time `json:"fechaIngreso"`
-	FechaRetiro  time.Time `json:"fechaRetiro"`
-	Cargo        string    `json:"cargoOContrato"`
-	Soporte      string    `json:"soporte"`
+	Entidad      string `json:"entidad"`
+	FechaIngreso string `json:"fechaIngreso"`
+	FechaRetiro  string `json:"fechaRetiro"`
+	Cargo        string `json:"cargoOContrato"`
+	Soporte      string `json:"soporte"`
 }
 
 type OtroEstudio struct {
 	Estudio
 	Programa      string `json:"programa"`
 	NombreEstudio string `json:"nombreEstudio"`
-	Institucion   bool   `json:"institucionFormacion"`
+	Institucion   string `json:"institucionFormacion"`
 	Soporte       string `json:"soporte"`
 }
