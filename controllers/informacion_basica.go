@@ -45,7 +45,7 @@ func (c *InformacionBasicaController) GetAll() {
 
 	info, err := helpers.GetInformacionBasicaByDocumento(codigo, numero)
 	if err == nil {
-		c.Data["json"] = info
+		c.Data["json"] = info.Persona
 	} else {
 		panic(err)
 	}
