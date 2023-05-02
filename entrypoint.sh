@@ -7,4 +7,4 @@ if [ -n "${PARAMETER_STORE:-}" ]; then
   export SIDEAP_KEY="$(aws ssm get-parameter --with-decryption --name /${PARAMETER_STORE}/sideap_mid/sideap/key --output text --query Parameter.Value)"
 fi
 
-python api.py
+exec ./main "$@"
