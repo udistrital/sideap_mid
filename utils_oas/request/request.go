@@ -1,6 +1,7 @@
 package request
 
 import (
+	"bytes"
 	"encoding/json"
 	"net/http"
 
@@ -33,6 +34,45 @@ func Get(urlp string, headers map[string]string, target interface{}) error {
 
 	//try
 	setHeaders(&req.Header, headers)
+	client := &http.Client{}
+
+	resp, err := client.Do(req)
+	if err != nil {
+		logs.Error("Error reading response. ", err)
+	}
+
+	defer resp.Body.Close()
+	return json.NewDecoder(resp.Body).Decode(target)
+}
+
+func SendJson(urlp string, trequest string, datajson, target interface{}) error {
+
+	b := new(bytes.Buffer)
+	if datajson != nil {
+		json.NewEncoder(b).Encode(datajson)
+	}
+
+	req, err := http.NewRequest(trequest, urlp, b)
+	if err != nil {
+		logs.Error("Error reading request. ", err)
+	}
+
+	defer func() {
+		//Catch
+		if r := recover(); r != nil {
+
+			client := &http.Client{}
+			resp, err := client.Do(req)
+			if err != nil {
+				logs.Error("Error reading response. ", err)
+			}
+
+			defer resp.Body.Close()
+			json.NewDecoder(resp.Body).Decode(target)
+		}
+	}()
+
+	//try
 	client := &http.Client{}
 
 	resp, err := client.Do(req)

@@ -1,6 +1,9 @@
 package controllers
 
 import (
+	"sideap_mid/helpers"
+	"sideap_mid/utils_oas/error_control"
+
 	beego "github.com/beego/beego/v2/server/web"
 )
 
@@ -23,4 +26,18 @@ func (c *DocumentoSoporteController) URLMapping() {
 // @router /:id [get]
 func (c *DocumentoSoporteController) GetOne() {
 
+	defer error_control.ErrorControlController(c.Controller, "DocumentoSoporteController")
+
+	doc, file, err := helpers.GetSoporte()
+	if err == nil {
+		resp := map[string]interface{}{
+			"doc":  doc,
+			"file": file,
+		}
+		c.Data["json"] = resp
+	} else {
+		panic(err)
+	}
+
+	c.ServeJSON()
 }
