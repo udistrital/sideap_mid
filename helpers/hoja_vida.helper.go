@@ -7,7 +7,7 @@ import (
 	"sideap_mid/utils_oas/error_control"
 	"sideap_mid/utils_oas/request"
 
-	"github.com/beego/beego/v2/core/logs"
+	"github.com/astaxie/beego/logs"
 )
 
 var endpointHojaVida = "obtenerHojaVidaUDISTRITAL"

@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	beego "github.com/beego/beego/v2/server/web"
+	beego "github.com/astaxie/beego"
 )
 
 // DocumentoSoporteController operations for Documento_soporte

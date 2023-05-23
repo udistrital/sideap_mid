@@ -2,12 +2,13 @@ package main
 
 import (
 	_ "sideap_mid/routers"
-	"sideap_mid/utils_oas/api_status"
-	"sideap_mid/utils_oas/auditoria"
-	"sideap_mid/utils_oas/error_controller"
 
-	beego "github.com/beego/beego/v2/server/web"
-	"github.com/beego/beego/v2/server/web/filter/cors"
+	api_status "github.com/udistrital/utils_oas/apiStatusLib"
+	"github.com/udistrital/utils_oas/auditoria"
+	error_controller "github.com/udistrital/utils_oas/customerrorv2"
+
+	beego "github.com/astaxie/beego"
+	"github.com/astaxie/beego/plugins/cors"
 )
 
 func main() {

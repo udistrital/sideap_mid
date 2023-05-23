@@ -8,9 +8,9 @@ import (
 
 	"github.com/patrickmn/go-cache"
 
-	"github.com/beego/beego/v2/core/logs"
-	beego "github.com/beego/beego/v2/server/web"
-	"github.com/beego/beego/v2/server/web/context"
+	beego "github.com/astaxie/beego"
+	"github.com/astaxie/beego/context"
+	"github.com/astaxie/beego/logs"
 )
 
 type Usuario struct {
@@ -58,7 +58,7 @@ func ListenRequest(ctx *context.Context) {
 	var data_response interface{} //Payload del servicio
 
 	/*---- Asignación de variables ----*/
-	app_name, _ = beego.AppConfig.String("appname")
+	app_name = beego.AppConfig.String("appname")
 	host = ctx.Request.Host
 	end_point = ctx.Request.URL.String()
 	method = ctx.Request.Method

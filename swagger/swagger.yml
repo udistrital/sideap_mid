@@ -1,8 +1,7 @@
 swagger: "2.0"
 info:
   title: beego Test API
-  description: |
-    beego has a very cool tools to autogenerate documents for your API
+  description: beego has a very cool tools to autogenerate documents for your API
   version: 1.0.0
   termsOfService: http://beego.me/
   contact:
@@ -16,9 +15,7 @@ paths:
     get:
       tags:
       - documento_soporte
-      description: |-
-        get Documento_soporte by id
-        <br>
+      description: get Documento_soporte by id
       operationId: DocumentoSoporteController.GetOne
       parameters:
       - in: path
@@ -37,9 +34,7 @@ paths:
     get:
       tags:
       - hoja_de_vida
-      description: |-
-        get Hoja_de_vida by id
-        <br>
+      description: get Hoja_de_vida by id
       operationId: HojaDeVidaController.GetOne
       parameters:
       - in: query
@@ -64,9 +59,7 @@ paths:
     get:
       tags:
       - informacion_basica
-      description: |-
-        get Informacion_basica by id
-        <br>
+      description: get Informacion_basica by id
       operationId: InformacionBasicaController.GeAll
       parameters:
       - in: query

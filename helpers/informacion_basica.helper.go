@@ -5,13 +5,13 @@ import (
 	"sideap_mid/utils_oas/error_control"
 	"sideap_mid/utils_oas/request"
 
-	"github.com/beego/beego/v2/core/logs"
-	beego "github.com/beego/beego/v2/server/web"
+	beego "github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
 )
 
-var path, _ = beego.AppConfig.String("sideapService")
-var key, _ = beego.AppConfig.String("sideapKey")
-var usuario, _ = beego.AppConfig.String("sideapUser")
+var path = beego.AppConfig.String("sideapService")
+var key = beego.AppConfig.String("sideapKey")
+var usuario = beego.AppConfig.String("sideapUser")
 var endpointBasicos = "obtenerDatosBasicosUDISTRITAL"
 
 func GetInformacionBasicaByDocumento(codigoDocumento string, numeroDocumento string) (info models.InformacionBasica, outputError map[string]interface{}) {

@@ -6,8 +6,8 @@ import (
 	"sideap_mid/helpers"
 	"sideap_mid/utils_oas/error_control"
 
-	"github.com/beego/beego/v2/core/logs"
-	beego "github.com/beego/beego/v2/server/web"
+	beego "github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
 )
 
 // InformacionBasicaController operations for Informacion_basica

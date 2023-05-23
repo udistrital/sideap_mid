@@ -10,7 +10,7 @@ package routers
 import (
 	"sideap_mid/controllers"
 
-	beego "github.com/beego/beego/v2/server/web"
+	beego "github.com/astaxie/beego"
 )
 
 func init() {

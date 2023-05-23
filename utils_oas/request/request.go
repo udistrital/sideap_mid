@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/beego/beego/v2/core/logs"
+	"github.com/astaxie/beego/logs"
 )
 
 func Get(urlp string, headers map[string]string, target interface{}) error {

@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/beego/beego/v2/core/logs"
-	beego "github.com/beego/beego/v2/server/web"
+	beego "github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
 )
 
 // Error control for controller
@@ -13,7 +13,7 @@ func ErrorControlController(c beego.Controller, controller string) {
 	if err := recover(); err != nil {
 		logs.Error(err)
 		localError := err.(map[string]interface{})
-		app, _ := beego.AppConfig.String("appname")
+		app := beego.AppConfig.String("appname")
 		c.Data["mesaage"] = (app + "/" + controller + "/" + (localError["funcion"]).(string))
 		c.Data["data"] = (localError["err"])
 		if status, ok := localError["status"]; ok && status != nil {
