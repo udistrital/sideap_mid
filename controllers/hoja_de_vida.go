@@ -3,8 +3,8 @@ package controllers
 import (
 	"errors"
 
-	"sideap_mid/helpers"
-	"sideap_mid/utils_oas/error_control"
+	"github.com/udistrital/sideap_mid/helpers"
+	"github.com/udistrital/sideap_mid/utils_oas/error_control"
 
 	beego "github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"

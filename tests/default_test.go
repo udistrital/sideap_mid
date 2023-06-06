@@ -7,7 +7,7 @@ import (
 	"runtime"
 	"testing"
 
-	_ "sideap_mid/routers"
+	_ "github.com/udistrital/sideap_mid/routers"
 
 	beego "github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"

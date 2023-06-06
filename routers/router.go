@@ -8,7 +8,7 @@
 package routers
 
 import (
-	"sideap_mid/controllers"
+	"github.com/udistrital/sideap_mid/controllers"
 
 	beego "github.com/astaxie/beego"
 )

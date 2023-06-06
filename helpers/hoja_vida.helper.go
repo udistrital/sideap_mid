@@ -3,9 +3,9 @@ package helpers
 import (
 	"fmt"
 
-	"sideap_mid/models"
-	"sideap_mid/utils_oas/error_control"
-	"sideap_mid/utils_oas/request"
+	"github.com/udistrital/sideap_mid/models"
+	"github.com/udistrital/sideap_mid/utils_oas/error_control"
+	"github.com/udistrital/sideap_mid/utils_oas/request"
 
 	"github.com/astaxie/beego/logs"
 )
