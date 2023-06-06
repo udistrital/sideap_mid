@@ -86,7 +86,7 @@ steps:
     - release/*
 
 - name: go_build
-  image: golang:1.15
+  image: golang:1.17
   commands:
   - go get -t
   - GOOS=linux GOARCH=amd64 go build -o main
