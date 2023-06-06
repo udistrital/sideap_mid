@@ -1,4 +1,4 @@
-module sideap_mid
+module github.com/udistrital/sideap_mid
 
 go 1.20
 

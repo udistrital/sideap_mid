@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "sideap_mid/routers"
+	_ "github.com/udistrital/sideap_mid/routers"
 
 	api_status "github.com/udistrital/utils_oas/apiStatusLib"
 	"github.com/udistrital/utils_oas/auditoria"
